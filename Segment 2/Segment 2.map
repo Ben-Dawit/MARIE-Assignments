@@ -1,0 +1,11 @@
+ -----------------
+ Symbol | Location
+ -------+---------
+ Else   |   010
+ Elseif |   008
+ Final  |   014
+ uno    |   01B
+ x      |   01C
+ y      |   01D
+ z      |   01E
+

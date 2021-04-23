@@ -1,0 +1,70 @@
+/ PART 2
+		ORG 0
+
+	     Load x
+
+             Subt y
+
+	     Skipcond 0			/Skip when x - y = negative number, AKA when x < y
+
+             Jump Elseif
+
+             Load y
+
+             Add uno
+
+     	Store y
+
+	     Jump Final
+
+
+
+Elseif,        Load x
+
+		Subt z
+
+	     Skipcond 400 		/Skip when x > z
+	 
+	     Jump Else
+	     
+	     Load y
+	     
+	     Subt uno
+	
+	     Store y
+
+	     Jump Final
+
+
+
+Else,	Load z
+	   
+	     Add uno
+
+	     Store z
+
+	     Jump Final
+
+	     
+Final,	Load x
+
+		Output
+
+		Load y
+
+		Output
+
+		Load z
+
+		Output
+
+		Halt
+
+uno,	 Hex 1
+
+x,           Hex 33
+
+y,           Hex 35
+
+z,           Hex 33
+

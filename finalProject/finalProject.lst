@@ -1,0 +1,172 @@
+     Assembly listing for: finalProject.mas
+                Assembled: Wed Apr 21 23:08:44 EDT 2021
+
+         |                            /Part 1		This app displays my name
+         |          ORG 100            
+100 D10A |  Getch   LOADI Chptr       / Load the character found at address chptr.
+101 8400 |          SKIPCOND 400      / If the character is a null, we are done.
+102 9104 |          JUMP Outp         / Otherwise, proceed with operation.
+103 9116 |          JUMP if            
+104 6000 |  Outp    OUTPUT            / Output the character.
+105 110A |          LOAD Chptr        / Move pointer to next character.
+106 3109 |          ADD One            
+107 210A |          STORE Chptr        
+108 9100 |          JUMP Getch         
+109 0001 |  One     HEX 0001           
+10A 010B |  Chptr   HEX 10B            
+10B 0042 |  String  DEC 66            / B
+10C 0065 |          DEC 101           / e
+10D 006E |          DEC 110           / n
+10E 000A |          DEC 10            / [empty line] AKA /n
+10F 0044 |          DEC 68            / D
+110 0061 |          DEC 97            / a
+111 0077 |          DEC 119           / w
+112 0069 |          DEC 105           / i
+113 0074 |          DEC 116           / t
+114 000A |          DEC 10            / [empty line] AKA /n
+115 0000 |          DEC 000           / [null] (tells when to stop)
+         |                            
+         |                            / PART 2 this is an just an if elseif else statement.
+         |                            
+116 1131 |  if      LOAD x             
+         |                            
+117 4132 |          SUBT y             
+         |                            
+118 8000 |          SKIPCOND 000      /skip if x < y
+         |                            
+119 911E |          JUMP Elseif        
+         |                            
+11A 1132 |          LOAD y             
+         |                            
+11B 3134 |          ADD uno            
+         |                            
+11C 2132 |          STORE y            
+         |                            
+11D 912A |          JUMP Final         
+         |                            
+11E 1131 |  Elseif  LOAD x             
+         |                            
+11F 4133 |          SUBT z             
+         |                            
+120 8400 |          SKIPCOND 400       
+         |                            	 
+121 9126 |          JUMP Else          
+         |                            	     
+122 1132 |          LOAD y             
+         |                            	     
+123 4134 |          SUBT uno           
+         |                            	
+124 2132 |          STORE y            
+         |                            
+125 912A |          JUMP Final         
+         |                            
+126 1133 |  Else    LOAD z             
+         |                            	   
+127 3134 |          ADD uno            
+         |                            
+128 2133 |          STORE z            
+         |                            	
+         |                            
+129 912A |          JUMP Final         
+         |                            	     
+         |                            	     
+         |                            	     
+12A 1131 |  Final   LOAD x             
+         |                            
+12B 6000 |          OUTPUT             
+         |                            
+12C 1132 |          LOAD y             
+         |                            
+12D 6000 |          OUTPUT             
+         |                            
+12E 1133 |          LOAD z             
+         |                            
+12F 6000 |          OUTPUT             
+         |                            
+130 9137 |          JUMP Top           
+         |                            
+131 0033 |  x       HEX 33             
+132 0035 |  y       HEX 35             
+133 0033 |  z       HEX 33             
+134 0001 |  uno     HEX 1              
+         |                            
+         |                            
+         |                            
+         |                            /Part 3
+         |                            
+135 1134 |          LOAD uno           
+         |                            
+136 2146 |          STORE i            
+         |                            
+137 1146 |  Top     LOAD i             
+         |                            		
+138 4145 |          SUBT High          
+         |                            		
+139 8000 |          SKIPCOND 000       
+         |                            		
+13A 9142 |          JUMP Loopend       
+         |                            
+         |                            
+         |                            
+13B 1148 |          LOAD sum           
+         |                            
+13C 3146 |          ADD i              
+         |                            		
+13D 2148 |          STORE sum          
+         |                            
+13E 1146 |          LOAD i             
+         |                            	
+13F 3147 |          ADD une            
+         |                            		
+140 2146 |          STORE i            
+         |                            
+         |                            		
+141 9137 |          JUMP Top           
+         |                            
+         |                            
+         |                            
+         |                            
+142 1148 |  Loopend LOAD sum           
+         |                            
+143 6000 |          OUTPUT             
+         |                            
+144 7000 |          HALT               
+         |                            
+         |                            
+         |                            
+145 000A |  High    HEX A              
+         |                            
+146 0001 |  i       HEX 1              
+         |                            
+147 0001 |  une     HEX 1              
+         |                            
+148 0000 |  sum     HEX 0              
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ---------------------------------------------------
+          Symbol  | Defined | References 
+         ---------+---------+-------------------------------
+          Chptr   |   10A   | 100, 105, 107
+          Else    |   126   | 121
+          Elseif  |   11E   | 119
+          Final   |   12A   | 11D, 125, 129
+          Getch   |   100   | 108
+          High    |   145   | 138
+          Loopend |   142   | 13A
+          One     |   109   | 106
+          Outp    |   104   | 102
+          String  |   10B   | 
+          Top     |   137   | 130, 141
+          i       |   146   | 136, 137, 13C, 13E, 140
+          if      |   116   | 103
+          sum     |   148   | 13B, 13D, 142
+          une     |   147   | 13F
+          uno     |   134   | 11B, 123, 127, 135
+          x       |   131   | 116, 11E, 12A
+          y       |   132   | 117, 11A, 11C, 122, 124, 12C
+          z       |   133   | 11F, 126, 128, 12E
+         ---------------------------------------------------
+
+

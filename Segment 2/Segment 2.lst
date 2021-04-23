@@ -1,0 +1,90 @@
+     Assembly listing for: Segment 2.mas
+                Assembled: Tue Apr 20 17:27:49 EDT 2021
+
+         |                          / PART 2
+         |         ORG 0             
+         |                          
+000 101C |         LOAD x            
+         |                          
+001 401D |         SUBT y            
+         |                          
+002 8000 |         SKIPCOND 000     /Skip when x - y = negative number, AKA when x < y
+         |                          
+003 9008 |         JUMP Elseif       
+         |                          
+004 101D |         LOAD y            
+         |                          
+005 301B |         ADD uno           
+         |                          
+006 201D |         STORE y           
+         |                          
+007 9014 |         JUMP Final        
+         |                          
+         |                          
+         |                          
+008 101C |  Elseif LOAD x            
+         |                          
+009 401E |         SUBT z            
+         |                          
+00A 8400 |         SKIPCOND 400     /Skip when x > z
+         |                          	 
+00B 9010 |         JUMP Else         
+         |                          	     
+00C 101D |         LOAD y            
+         |                          	     
+00D 401B |         SUBT uno          
+         |                          	
+00E 201D |         STORE y           
+         |                          
+00F 9014 |         JUMP Final        
+         |                          
+         |                          
+         |                          
+010 101E |  Else   LOAD z            
+         |                          	   
+011 301B |         ADD uno           
+         |                          
+012 201E |         STORE z           
+         |                          
+013 9014 |         JUMP Final        
+         |                          
+         |                          	     
+014 101C |  Final  LOAD x            
+         |                          
+015 6000 |         OUTPUT            
+         |                          
+016 101D |         LOAD y            
+         |                          
+017 6000 |         OUTPUT            
+         |                          
+018 101E |         LOAD z            
+         |                          
+019 6000 |         OUTPUT            
+         |                          
+01A 7000 |         HALT              
+         |                          
+01B 0001 |  uno    HEX 1             
+         |                          
+01C 0033 |  x      HEX 33            
+         |                          
+01D 0035 |  y      HEX 35            
+         |                          
+01E 0033 |  z      HEX 33            
+         |                          
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          Else   |   010   | 00B
+          Elseif |   008   | 003
+          Final  |   014   | 007, 00F, 013
+          uno    |   01B   | 005, 00D, 011
+          x      |   01C   | 000, 008, 014
+          y      |   01D   | 001, 004, 006, 00C, 00E, 016
+          z      |   01E   | 009, 010, 012, 018
+         --------------------------------------------------
+
+

@@ -1,0 +1,152 @@
+     Assembly listing for: helloworld.mas
+                Assembled: Tue Apr 20 17:47:44 EDT 2021
+
+         |                              / PART 1
+         |           ORG 0              / implemented using "do while" loop
+000 1011 |  WHILE    LOAD STR_BASE      / load str_base into ac
+001 300F |           ADD ITR            / add index to str_base
+002 2010 |           STORE INDEX        / store (str_base + index) into ac
+003 A000 |           CLEAR              / set ac to zero
+004 B010 |           ADDI INDEX         / get the value at ADDR
+005 8400 |           SKIPCOND 400       / SKIP if ADDR = 0 (or null char)
+006 9008 |           JUMP DO            / jump to DO
+007 900D |           JUMP END           / JUMP to END
+         |                              
+008 6000 |  DO       OUTPUT             / output value at ADDR
+009 100F |           LOAD ITR           / load iterator into ac
+00A 300E |           ADD ONE            / increment iterator by one
+00B 200F |           STORE ITR          / store ac in iterator
+00C 9000 |           JUMP WHILE          
+         |                              
+00D 7000 |  END      HALT                
+00E 0001 |  ONE      DEC 1               
+00F 0000 |  ITR      DEC 0               
+010 0000 |  INDEX    HEX 0               
+011 0012 |  STR_BASE HEX 12             / memory location of str
+012 004E |  STR      HEX 4E             / N
+013 0065 |           HEX 65             / E
+014 0062 |           HEX 62             / B
+015 0069 |           HEX 69             / I
+016 0079 |           HEX 79             / Y
+017 0075 |           HEX 75             / U 
+018 000A |           HEX 0A             / new line
+019 0044 |           HEX 44             / D
+01A 0061 |           HEX 61             / A
+01B 0077 |           HEX 77             / W
+01C 0069 |           HEX 69             / I
+01D 0074 |           HEX 74             / T
+01E 000A |           HEX 0A             / new line
+         |                              
+         |                              
+         |                              
+         |                              
+         |                              
+         |                              
+         |                              
+         |                              
+         |                              
+         |                              
+         |                              
+         |                              
+         |                              
+         |                              
+         |                              
+01F 0001 |  uno      HEX 1               
+         |                              
+020 0033 |  x        HEX 33              
+         |                              
+021 0035 |  y        HEX 35              
+         |                              
+022 0033 |  z        HEX 33              
+         |                              
+         |                              
+         |                              
+         |                              / PART 2
+         |                              
+023 1020 |           LOAD x              
+         |                              
+024 4021 |           SUBT y              
+         |                              
+025 8000 |           SKIPCOND 000       /Skip when x - y = negative number, AKA when x < y
+         |                              
+026 902B |           JUMP Elseif         
+         |                              
+027 1021 |           LOAD y              
+         |                              
+028 301F |           ADD uno             
+         |                              
+029 2021 |           STORE y             
+         |                              
+02A 9037 |           JUMP Final          
+         |                              
+         |                              
+         |                              
+02B 1020 |  Elseif   LOAD x              
+         |                              
+02C 4022 |           SUBT z              
+         |                              
+02D 8400 |           SKIPCOND 400       /Skip when x > z
+         |                              	 
+02E 9033 |           JUMP Else           
+         |                              	     
+02F 1021 |           LOAD y              
+         |                              	     
+030 401F |           SUBT uno            
+         |                              	
+031 2021 |           STORE y             
+         |                              
+032 9037 |           JUMP Final          
+         |                              
+         |                              
+         |                              
+033 1022 |  Else     LOAD z              
+         |                              	   
+034 301F |           ADD uno             
+         |                              
+035 2022 |           STORE z             
+         |                              
+036 9037 |           JUMP Final          
+         |                              
+         |                              	     
+037 1020 |  Final    LOAD x              
+         |                              
+038 6000 |           OUTPUT              
+         |                              
+039 1021 |           LOAD y              
+         |                              
+03A 6000 |           OUTPUT              
+         |                              
+03B 1022 |           LOAD z              
+         |                              
+03C 6000 |           OUTPUT              
+         |                              
+03D 7000 |           HALT                
+         |                              
+         |                              
+         |                              
+         |                              / PART 3
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ----------------------------------------------------
+          Symbol   | Defined | References 
+         ----------+---------+-------------------------------
+          DO       |   008   | 006
+          END      |   00D   | 007
+          Else     |   033   | 02E
+          Elseif   |   02B   | 026
+          Final    |   037   | 02A, 032, 036
+          INDEX    |   010   | 002, 004
+          ITR      |   00F   | 001, 009, 00B
+          ONE      |   00E   | 00A
+          STR      |   012   | 
+          STR_BASE |   011   | 000
+          WHILE    |   000   | 00C
+          uno      |   01F   | 028, 030, 034
+          x        |   020   | 023, 02B, 037
+          y        |   021   | 024, 027, 029, 02F, 031, 039
+          z        |   022   | 02C, 033, 035, 03B
+         ----------------------------------------------------
+
+

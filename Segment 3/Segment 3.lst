@@ -1,0 +1,69 @@
+     Assembly listing for: Segment 3.mas
+                Assembled: Tue Apr 20 19:43:04 EDT 2021
+
+         |          ORG 100            
+         |                            
+100 0000 |  Low     HEX 0              
+         |                            
+101 000A |  High    HEX A              
+         |                            
+102 0000 |  i       HEX 0              
+         |                            
+103 0001 |  uno     HEX 1              
+         |                            
+104 0000 |  Sum     HEX 0              
+         |                            
+         |                            
+105 1103 |          LOAD uno           
+         |                            
+106 2102 |          STORE i            
+         |                            
+107 1102 |  Top     LOAD i             
+         |                            
+108 4101 |          SUBT High         / if(i - high  <=0) 
+         |                            
+109 8000 |          SKIPCOND 000      /is i < 10?
+         |                            
+10A 9112 |          JUMP LoopEnd      /quit
+         |                            	
+         |                            
+10B 1104 |          LOAD Sum          /Sum = Sum + i
+         |                            
+10C 3102 |          ADD i              
+         |                            
+10D 2104 |          STORE Sum          
+         |                            
+10E 1102 |          LOAD i            /i++
+         |                            
+10F 3103 |          ADD uno            
+         |                            
+110 2102 |          STORE i            
+         |                            
+111 9107 |          JUMP Top           
+         |                            
+         |                            
+         |                            
+         |                            
+112 1104 |  LoopEnd LOAD Sum           
+         |                            	 
+113 6000 |          OUTPUT             
+         |                            	
+114 7000 |          HALT               
+         |                            
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ---------------------------------------------------
+          Symbol  | Defined | References 
+         ---------+---------+-------------------------------
+          High    |   101   | 108
+          LoopEnd |   112   | 10A
+          Low     |   100   | 
+          Sum     |   104   | 10B, 10D, 112
+          Top     |   107   | 111
+          i       |   102   | 106, 107, 10C, 10E, 110
+          uno     |   103   | 105, 10F
+         ---------------------------------------------------
+
+

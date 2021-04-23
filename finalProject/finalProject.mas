@@ -1,0 +1,140 @@
+/Part 1		This app displays my name
+	ORG 100
+Getch,	LoadI	   Chptr	/ Load the character found at address chptr.
+	Skipcond   400		/ If the character is a null, we are done.
+	Jump	   Outp		/ Otherwise, proceed with operation.
+	Jump 	if
+Outp,	Output			/ Output the character.
+	Load	   Chptr	/ Move pointer to next character.
+	Add	   One		
+	Store	   Chptr
+	Jump	   Getch
+One,	Hex	0001
+Chptr, 	Hex	10B
+String,	Dec	66  / B
+	Dec	101  / e
+	Dec	110  / n
+	Dec	10  / [empty line] AKA /n
+	Dec	68  / D
+	Dec	97  / a
+	Dec	119  / w
+	Dec	105  / i
+	Dec	116  / t
+	Dec	10  / [empty line] AKA /n
+	Dec	000  / [null] (tells when to stop)
+
+/ PART 2 this is an just an if elseif else statement.
+
+if,	Load x
+
+             Subt y
+
+	     Skipcond 000	/skip if x < y
+
+		Jump Elseif
+
+             Load y
+
+             Add uno
+
+     	Store y
+
+	     Jump Final
+
+Elseif,       Load x
+
+		Subt z
+
+	     Skipcond 400
+	 
+	     Jump Else
+	     
+	     Load y
+	     
+	     Subt uno
+	
+	     Store y
+
+	     Jump Final
+
+Else,	Load z
+	   
+	     Add uno
+
+	     Store z
+	
+
+	     Jump Final
+	     
+	     
+	     
+Final,	Load x
+
+		Output
+
+		Load y
+
+		Output
+
+		Load z
+
+		Output
+
+		Jump Top
+
+x,	hex 33
+y,	hex 35
+z,	hex 33
+uno,	hex 1
+
+
+
+/Part 3
+
+		Load uno
+
+		store i
+
+Top,    	Load i
+		
+		Subt High
+		
+		Skipcond 000
+		
+		Jump Loopend
+
+
+
+		Load sum
+
+		Add i
+		
+		Store sum
+
+		Load i
+	
+		Add une
+		
+		Store i
+
+		
+		Jump Top
+
+
+
+
+Loopend, 	Load sum
+
+		Output
+
+		Halt		
+
+
+
+High,	hex A
+
+i,	hex 1
+
+une,	hex 1
+
+sum,	hex 0

@@ -1,0 +1,19 @@
+ -------------------
+ Symbol   | Location
+ ---------+---------
+ DO       |   008
+ END      |   00D
+ Else     |   033
+ Elseif   |   02B
+ Final    |   037
+ INDEX    |   010
+ ITR      |   00F
+ ONE      |   00E
+ STR      |   012
+ STR_BASE |   011
+ WHILE    |   000
+ uno      |   01F
+ x        |   020
+ y        |   021
+ z        |   022
+

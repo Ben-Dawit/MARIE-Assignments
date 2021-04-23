@@ -1,0 +1,68 @@
+     Assembly listing for: Segment 3 Second Try.mas
+                Assembled: Tue Apr 20 19:54:41 EDT 2021
+
+         |          ORG 0              
+         |                            
+000 0000 |  Min     HEX 0              
+         |                            
+001 000A |  High    HEX A              
+         |                            
+002 0000 |  i       HEX 0              
+         |                            
+003 0001 |  uno     HEX 1              
+         |                            
+004 0000 |  Sum     HEX 0              
+         |                            
+         |                            
+005 1003 |          LOAD uno           
+         |                            
+006 2002 |          STORE i            
+         |                            
+007 1002 |  Top     LOAD i            / The next 4 lines are if(i - high  <=0) {
+         |                            
+008 4001 |          SUBT High          
+         |                            
+009 8000 |          SKIPCOND 000      /is i < 10?
+         |                            
+00A 9012 |          JUMP LoopEnd      /quit
+         |                            	
+         |                            
+00B 1004 |          LOAD Sum          /Sum = Sum + i
+         |                            
+00C 3002 |          ADD i              
+         |                            
+00D 2004 |          STORE Sum          
+         |                            
+00E 1002 |          LOAD i            /The next couple lines are i++
+         |                            
+00F 3003 |          ADD uno            
+         |                            
+010 2002 |          STORE i            
+         |                            
+011 9007 |          JUMP Top          / 
+         |                            
+         |                            
+         |                            
+         |                            
+012 1004 |  LoopEnd LOAD Sum           
+         |                            	 
+013 6000 |          OUTPUT             
+         |                            	
+014 7000 |          HALT               
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ---------------------------------------------------
+          Symbol  | Defined | References 
+         ---------+---------+-------------------------------
+          High    |   001   | 008
+          LoopEnd |   012   | 00A
+          Min     |   000   | 
+          Sum     |   004   | 00B, 00D, 012
+          Top     |   007   | 011
+          i       |   002   | 006, 007, 00C, 00E, 010
+          uno     |   003   | 005, 00F
+         ---------------------------------------------------
+
+

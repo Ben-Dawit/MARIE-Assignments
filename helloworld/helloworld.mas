@@ -1,0 +1,124 @@
+/ PART 1
+		ORG		0		/ implemented using "do while" loop
+WHILE, 		LOAD		STR_BASE	/ load str_base into ac
+		ADD		ITR      	/ add index to str_base
+		STORE		INDEX		/ store (str_base + index) into ac
+		CLEAR				/ set ac to zero
+		ADDI		INDEX		/ get the value at ADDR
+		SKIPCOND	400		/ SKIP if ADDR = 0 (or null char)
+		JUMP		DO		/ jump to DO
+		JUMP		END		/ JUMP to END
+
+DO,		OUTPUT				/ output value at ADDR
+		LOAD		ITR 		/ load iterator into ac
+		ADD 		ONE 		/ increment iterator by one
+		STORE		ITR 		/ store ac in iterator
+		JUMP		WHILE 		
+
+END,		HALT
+ONE,		DEC		1
+ITR,		DEC		0
+INDEX,		HEX		0
+STR_BASE,	HEX		12		/ memory location of str
+STR,		HEX		4e		/ N
+		HEX		65		/ E
+		HEX		62		/ B
+		HEX		69		/ I
+		HEX		79		/ Y
+		HEX		75		/ U 
+		HEX		0a		/ new line
+		HEX		44		/ D
+		HEX		61		/ A
+		HEX		77		/ W
+		HEX		69		/ I
+		HEX		74		/ T
+		HEX		0a		/ new line
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+uno,	 Hex 1
+
+x,           Hex 33
+
+y,           Hex 35
+
+z,           Hex 33
+
+
+
+/ PART 2
+
+if,	     Load x
+
+             Subt y
+
+	     Skipcond 0			/Skip when x - y = negative number, AKA when x < y
+
+             Jump Elseif
+
+             Load y
+
+             Add uno
+
+     	Store y
+
+	     Jump Final
+
+
+
+Elseif,        Load x
+
+		Subt z
+
+	     Skipcond 400 		/Skip when x > z
+	 
+	     Jump Else
+	     
+	     Load y
+	     
+	     Subt uno
+	
+	     Store y
+
+	     Jump Final
+
+
+
+Else,	Load z
+	   
+	     Add uno
+
+	     Store z
+
+	     Jump Final
+
+	     
+Final,	Load x
+
+		Output
+
+		Load y
+
+		Output
+
+		Load z
+
+		Output
+
+		Halt
+
+
+
+/ PART 3

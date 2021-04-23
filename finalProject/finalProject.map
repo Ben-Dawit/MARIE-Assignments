@@ -1,0 +1,23 @@
+ ------------------
+ Symbol  | Location
+ --------+---------
+ Chptr   |   10A
+ Else    |   126
+ Elseif  |   11E
+ Final   |   12A
+ Getch   |   100
+ High    |   145
+ Loopend |   142
+ One     |   109
+ Outp    |   104
+ String  |   10B
+ Top     |   137
+ i       |   146
+ if      |   116
+ sum     |   148
+ une     |   147
+ uno     |   134
+ x       |   131
+ y       |   132
+ z       |   133
+

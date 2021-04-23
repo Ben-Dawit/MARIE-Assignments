@@ -1,0 +1,49 @@
+ORG 100
+
+Low,     Hex 0
+
+High,    Hex A
+
+i,       Hex 0
+
+uno,     Hex 1
+
+Sum,     Hex 0
+
+
+	Load uno
+
+        Store i
+
+Top,     Load i
+
+         Subt High	/ if(i - high  <=0) 
+
+         Skipcond 000   /is i < 10?
+
+         Jump LoopEnd    /quit
+	
+
+	Load Sum	/Sum = Sum + i
+
+	Add i
+
+	store Sum
+
+         Load i          /i++
+
+         Add uno
+
+         Store i         
+
+         Jump Top
+
+
+
+
+LoopEnd, Load Sum
+	 
+	 Output
+	
+	 Halt
+

@@ -1,0 +1,29 @@
+     Assembly listing for: add2nums.mas
+                Assembled: Mon Apr 19 21:22:52 EDT 2021
+
+         |         ORG 100           
+         |                          
+100 1105 |         LOAD x            
+101 3106 |         ADD y             
+102 2107 |         STORE z           
+103 6000 |         OUTPUT            
+104 7000 |         HALT              
+         |                          
+105 0023 |  x      DEC 35            
+106 FFE9 |  y      DEC -23           
+107 0000 |  z      HEX 0             
+         |                          
+         |                           	
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          x      |   105   | 100
+          y      |   106   | 101
+          z      |   107   | 102
+         --------------------------------------------------
+
+
